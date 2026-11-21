@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)file:///C:/Users/User/Downloads/ECOCETI_responsivo%20(1).html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ECOCETI - Tecnologia que Cuida</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #eef7f0;
+            color: #1f2937;
+        }
+
+        /* =========================
+           MENU
+        ========================= */
+
+        header {
+            background: linear-gradient(135deg, #064e3b, #087f5b, #16a34a);
+            color: rgb(244, 246, 248);
+            padding: 25px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,.2);
+        }
+
+        .topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 42px;
+        }
+
+        .logo h1 {
+            font-size: 25px;
+        }
+
+        .logo p {
+            font-size: 13px;
+            opacity: .9;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        nav button {
+            border: none;
+            background: rgba(255,255,255,.12);
+            color: white;
+            padding: 10px 13px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        nav button:hover {
+            background: white;
+            color: #087f5b;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           PÁGINAS
+        ========================= */
+
+        main {
+            max-width: 1400px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        .pagina {
+            display: none;
+            animation: aparecer .4s ease;
+        }
+
+        .pagina.ativa {
+            display: block;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #064e3b, #16a34a);
+            color: white;
+            padding: 50px 35px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "🌱";
+            position: absolute;
+            font-size: 180px;
+            right: 30px;
+            bottom: -40px;
+            opacity: .12;
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 800px;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 18px;
+            margin: 25px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.08);
+            border-left: 5px solid #16a34a;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 22px rgba(0,0,0,.12);
+        }
+
+        .card .icone {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+            color: #065f46;
+        }
+
+        .numero {
+            font-size: 35px;
+            font-weight: bold;
+            color: #16a34a;
+        }
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        .secao {
+            background: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,.07);
+        }
+
+        .secao h2 {
+            color: #065f46;
+            margin-bottom: 15px;
+        }
+
+        .secao h3 {
+            color: #087f5b;
+            margin: 15px 0 8px;
+        }
+
+        .secao p {
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .lista {
+            padding-left: 25px;
+            line-height: 1.9;
+        }
+
+        /* =========================
+           DASHBOARD
+        ========================= */
+
+        .barra {
+            height: 20px;
+            background: #d1fae5;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 10px 0 20px;
+        }
+
+        .progresso {
+            height: 100%;
+            background: linear-gradient(90deg, #16a34a, #84cc16);
+            border-radius: 20px;
+            transition: width 1s;
+        }
+
+        .indicador {
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           TABELAS
+        ========================= */
+
+        .tabela-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th,
+        td {
+            padding: 13px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #065f46;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f0fdf4;
+        }
+
+        /* =========================
+           FORMULÁRIOS
+        ========================= */
+
+        form {
+            display: grid;
+            gap: 12px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #374151;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #16a34a;
+            box-shadow: 0 0 0 3px rgba(22,163,74,.1);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .botao {
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .botao:hover {
+            background: #15803d;
+            transform: translateY(-2px);
+        }
+
+        .botao.verde {
+            background: #065f46;
+        }
+
+        .botao.vermelho {
+            background: #dc2626;
+        }
+
+        .divisao-secao {
+            margin: 35px 0 15px;
+            padding: 20px 25px;
+            background: #d1fae5;
+            border-left: 5px solid #16a34a;
+            border-radius: 12px;
+        }
+
+        .divisao-secao h2 {
+            color: #065f46;
+            margin-bottom: 6px;
+        }
+
+        .divisao-secao p {
+            line-height: 1.6;
+        }
+
+        /* =========================
+           ALERTAS
+        ========================= */
+
+        .alerta {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .alerta.verde {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .alerta.amarela {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .alerta.azul {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            margin-top: 30px;
+            padding: 30px;
+            text-align: center;
+            background: #064e3b;
+            color: white;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 800px) {
+            .topo {
+                flex-direction: column;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            nav button {
+                flex: 1;
+                min-width: 100px;
+            }
+        }
+    
+
+        /* =====================================
+           AJUSTES RESPONSIVOS PROFISSIONAIS
+           Mantém a identidade visual original
+        ===================================== */
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            min-width: 320px;
+            overflow-x: hidden;
+        }
+
+        main,
+        .pagina,
+        .secao,
+        .card,
+        .hero,
+img, video, iframe {
+            max-width: 100%;
+        }
+
+        button, input, select, textarea {
+            font: inherit;
+        }
+
+        button {
+            touch-action: manipulation;
+        }
+
+        .tabela-container {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 8px;
+        }
+
+        .tabela-container table {
+            min-width: 600px;
+        }
+
+        .cards {
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+        }
+
+        .secao p,
+        .secao li,
+        .card p,
+        .hero p,p {
+            overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 1024px) {
+            main {
+                padding: 22px;
+            }
+
+            .topo {
+                align-items: center;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 800px) {
+            header {
+                padding: 16px 20px;
+            }
+
+            .topo {
+                align-items: stretch;
+                gap: 14px;
+            }
+
+            .logo {
+                justify-content: center;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                gap: 8px;
+                width: 100%;
+                padding: 2px 2px 10px;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+            }
+
+            nav button {
+                flex: 0 0 auto;
+                min-width: max-content;
+                min-height: 44px;
+                padding: 11px 14px;
+                white-space: nowrap;
+            }
+
+            main {
+                padding: 18px;
+            }
+
+            .hero {
+                padding: 34px 26px;
+            }
+
+            .hero::after {
+                right: 8px;
+                font-size: 130px;
+            }
+
+            .secao {
+                padding: 22px;
+                margin: 18px 0;
+            }
+}
+
+        @media (max-width: 600px) {
+            header {
+                padding: 14px 14px 10px;
+            }
+
+            .logo-icon {
+                font-size: 34px;
+            }
+
+            .logo h1 {
+                font-size: 22px;
+            }
+
+            .logo p {
+                font-size: 12px;
+            }
+
+            nav {
+                justify-content: flex-start;
+                gap: 7px;
+            }
+
+            nav button {
+                font-size: 13px;
+                padding: 10px 12px;
+                border-radius: 7px;
+            }
+
+            main {
+                padding: 12px;
+            }
+
+            .hero {
+                padding: 28px 20px;
+                border-radius: 15px;
+            }
+
+            .hero h2 {
+                font-size: clamp(24px, 7vw, 30px);
+                line-height: 1.2;
+            }
+
+            .hero p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            .hero::after {
+                font-size: 95px;
+                right: 0;
+                bottom: -22px;
+            }
+
+            .cards {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 13px;
+                margin: 18px 0;
+            }
+
+            .card {
+                padding: 20px;
+                border-radius: 12px;
+            }
+
+            .card .icone {
+                font-size: 30px;
+            }
+
+            .numero {
+                font-size: 30px;
+            }
+
+            .secao {
+                padding: 18px;
+                margin: 15px 0;
+                border-radius: 12px;
+            }
+
+            .secao h2 {
+                font-size: 21px;
+                line-height: 1.3;
+            }
+
+            .secao h3 {
+                font-size: 17px;
+            }
+
+            .secao p,
+            .lista {
+                font-size: 14px;
+                line-height: 1.65;
+            }
+
+            .lista {
+                padding-left: 20px;
+            }
+form {
+                gap: 10px;
+            }
+
+            input,
+            select,
+            textarea {
+                min-height: 44px;
+                padding: 11px;
+                font-size: 16px;
+            }
+
+            textarea {
+                min-height: 110px;
+            }
+
+            .botao {
+                min-height: 44px;
+                max-width: 100%;
+                padding: 12px 15px;
+                white-space: normal;
+            }
+
+            .alerta {
+                padding: 13px;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            th,
+            td {
+                padding: 10px;
+                font-size: 13px;
+                white-space: normal;
+            }
+
+            footer {
+                padding: 22px 15px;
+                font-size: 13px;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 380px) {
+            main {
+                padding: 9px;
+            }
+
+            .hero {
+                padding: 24px 16px;
+            }
+
+            .secao,
+            .card {
+                padding: 15px;
+            }
+}
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="topo">
+
+        <div class="logo">
+            <div class="logo-icon">🌎</div>
+
+            <div>
+                <h1>ECOCETI</h1>
+                <p>Tecnologia que Cuida</p>
+            </div>
+        </div>
+
+        <nav>
+            <button onclick="mostrarPagina('inicio')">Início</button>
+            <button onclick="mostrarPagina('dashboard')">Dashboard</button>
+            <button onclick="mostrarPagina('especies')">Espécies e Horta</button>
+            <button onclick="mostrarPagina('ambiente')">Meio Ambiente</button>
+            <button onclick="mostrarPagina('mineracao')">Mineração</button>
+            <button onclick="mostrarPagina('registros')">Registros</button>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+    <!-- =========================
+         INÍCIO
+    ========================= -->
+
+    <section id="inicio" class="pagina ativa">
+
+        <div class="hero">
+
+            <h2>ECOCETI</h2>
+
+            <p>
+                Plataforma digital de sustentabilidade do
+                CETI Professora Maria de Castro Ribeiro.
+                Uma iniciativa que une tecnologia, meio ambiente,
+                educação profissional, inovação e responsabilidade
+                socioambiental.
+            </p>
+
+            <br>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Sustentabilidade</h3>
+                <p>
+                    Promover ações para preservar os recursos naturais
+                    e melhorar a relação entre sociedade e meio ambiente.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Tecnologia</h3>
+                <p>
+                    Utilizar sistemas digitais para organizar,
+                    monitorar e divulgar ações ambientais.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Mineração Responsável</h3>
+                <p>
+                    Aprender como a mineração pode reduzir impactos
+                    e contribuir para o desenvolvimento sustentável.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Integração</h3>
+                <p>
+                    Integrar Desenvolvimento de Sistemas,
+                    Mineração, Controle Ambiental e Farmácia.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>Sobre o projeto</h2>
+
+            <p>
+                O ECOCETI transforma os conhecimentos dos estudantes
+                em soluções tecnológicas voltadas para os problemas
+                ambientais da escola e do território.
+            </p>
+
+            <p>
+                O sistema reúne informações sobre horta, pomar,
+                plantas medicinais, biodiversidade, ações ambientais
+                e mineração responsável.
+            </p>
+
+            <div class="alerta verde">
+                <strong>💡 Nossa ideia:</strong>
+                usar a tecnologia para cuidar do meio ambiente,
+                organizar informações e incentivar atitudes sustentáveis.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         DASHBOARD
+    ========================= -->
+
+    <section id="dashboard" class="pagina">
+
+        <div class="hero">
+            <h2>Dashboard de Sustentabilidade</h2>
+            <p>
+                Painel de acompanhamento das ações ambientais do CETI.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Espécies cadastradas</h3>
+                <div class="numero" id="totalEspecies">2</div>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Itens da horta</h3>
+                <div class="numero" id="totalHorta">0</div>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Ações registradas</h3>
+                <div class="numero" id="totalAcoes">0</div>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Total de cadastros</h3>
+                <div class="numero" id="totalCadastros">0</div>
+            </div>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>Indicadores ambientais</h2>
+
+            <div class="indicador">
+                <strong>Preservação da biodiversidade</strong>
+                <div class="barra">
+                    <div class="progresso" style="width: 78%"></div>
+                </div>
+            </div>
+
+            <div class="indicador">
+                <strong>Educação ambiental</strong>
+                <div class="barra">
+                    <div class="progresso" style="width: 86%"></div>
+                </div>
+            </div>
+
+            <div class="indicador">
+                <strong>Gestão da horta</strong>
+                <div class="barra">
+                    <div class="progresso" style="width: 68%"></div>
+                </div>
+            </div>
+
+            <div class="indicador">
+                <strong>Responsabilidade na mineração</strong>
+                <div class="barra">
+                    <div class="progresso" style="width: 91%"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>Indicadores acompanhados</h2>
+
+            <ul class="lista">
+                <li>Quantidade de espécies cadastradas;</li>
+                <li>Quantidade de plantas cultivadas;</li>
+                <li>Ações de educação ambiental realizadas;</li>
+                <li>Registros de manutenção da horta;</li>
+                <li>Atividades de recuperação ambiental;</li>
+                <li>Projetos relacionados à mineração responsável;</li>
+                <li>Participação dos estudantes;</li>
+                <li>Quantidade de registros ambientais;</li>
+                <li>Atividades de reciclagem;</li>
+                <li>Preservação da biodiversidade.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HORTA
+    ========================= -->
+
+    <!-- =========================
+         ESPÉCIES
+    ========================= -->
+
+    <section id="especies" class="pagina">
+
+        <div class="hero">
+
+            <h2>Espécies e Horta Escolar</h2>
+
+            <p>
+                Banco de dados da biodiversidade presente
+                nos espaços da escola.
+            </p>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>Espécies da escola</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="icone"></div>
+                    <h3>Ipê-amarelo</h3>
+                    <p><strong>Nome científico:</strong> Handroanthus sp.</p>
+                    <p>Árvore nativa utilizada na arborização e valorização da biodiversidade.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icone"></div>
+                    <h3>Rosa-do-deserto</h3>
+                    <p><strong>Nome científico:</strong> Adenium obesum</p>
+                    <p>Planta ornamental adaptada a ambientes de clima quente.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icone"></div>
+                    <h3>Alecrim</h3>
+                    <p><strong>Nome científico:</strong> Salvia rosmarinus</p>
+                    <p>Planta aromática utilizada em atividades educativas.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icone"></div>
+                    <h3>Manjericão</h3>
+                    <p><strong>Nome científico:</strong> Ocimum basilicum</p>
+                    <p>Planta aromática cultivada no jardim medicinal.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>➕ Cadastrar espécie</h2>
+
+            <form onsubmit="cadastrarEspecie(event)">
+
+                <label>Nome popular</label>
+                <input type="text" id="nomeEspecie" required="">
+
+                <label>Nome científico</label>
+                <input type="text" id="cientificoEspecie">
+
+                <label>Local</label>
+                <select id="localEspecie">
+                    <option>Horta</option>
+                    <option>Pomar</option>
+                    <option>Jardim Medicinal</option>
+                    <option>Jardim de Ipês</option>
+                    <option>Flores do Deserto</option>
+                    <option>Outro</option>
+                </select>
+
+                <label>Informações</label>
+                <textarea id="infoEspecie"></textarea>
+
+                <button class="botao">Cadastrar espécie</button>
+
+            </form>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>Banco de dados de espécies</h2>
+
+            <div class="tabela-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Nome científico</th>
+                            <th>Local</th>
+                            <th>Informações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaEspecies">
+
+                <tr>
+
+                    <td>Ipê-amarelo</td>
+
+                    <td>Handroanthus sp.</td>
+
+                    <td>Jardim de Ipês</td>
+
+                    <td>Árvore nativa utilizada na arborização.</td>
+
+                </tr>
+
+            
+
+                <tr>
+
+                    <td>Rosa-do-deserto</td>
+
+                    <td>Adenium obesum</td>
+
+                    <td>Flores do Deserto</td>
+
+                    <td>Planta ornamental adaptada a ambientes quentes.</td>
+
+                </tr>
+
+            </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    
+
+        <!-- HORTA INTEGRADA ÀS ESPÉCIES -->
+        <div class="divisao-secao"><h2>Horta escolar</h2><p>Conheça e acompanhe os cultivos da escola.</p></div>
+
+<div class="hero">
+
+            <h2>Sistema de Monitoramento da Horta</h2>
+
+            <p>
+                Acompanhe as espécies cultivadas, plantios,
+                irrigação, manutenção e produção da horta escolar.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Alface</h3>
+                <p>Plantio: 05/03/2026</p>
+                <p>Status: Em crescimento</p>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Coentro</h3>
+                <p>Plantio: 10/03/2026</p>
+                <p>Status: Saudável</p>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Tomate</h3>
+                <p>Plantio: 15/03/2026</p>
+                <p>Status: Floração</p>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Cenoura</h3>
+                <p>Plantio: 20/03/2026</p>
+                <p>Status: Crescimento</p>
+            </div>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>Monitoramento</h2>
+
+            <div class="alerta azul">
+                <strong>Irrigação:</strong>
+                verificar a umidade do solo diariamente.
+            </div>
+
+            <div class="alerta verde">
+                <strong>Adubação:</strong>
+                priorizar práticas sustentáveis e compostagem.
+            </div>
+
+            <div class="alerta amarela">
+                <strong>Atenção:</strong>
+                observar sinais de pragas ou doenças nas plantas.
+            </div>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>➕ Cadastrar cultivo</h2>
+
+            <form onsubmit="cadastrarHorta(event)">
+
+                <label>Nome da espécie</label>
+                <input type="text" id="nomeHorta" required="">
+
+                <label>Data do plantio</label>
+                <input type="date" id="dataHorta" required="">
+
+                <label>Status</label>
+                <select id="statusHorta">
+                    <option>Plantado</option>
+                    <option>Em crescimento</option>
+                    <option>Floração</option>
+                    <option>Pronto para colheita</option>
+                </select>
+
+                <button class="botao">Cadastrar</button>
+
+            </form>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>Cultivos cadastrados</h2>
+
+            <div class="tabela-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Espécie</th>
+                            <th>Plantio</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaHorta"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MEIO AMBIENTE
+    ========================= -->
+
+    <section id="ambiente" class="pagina">
+
+        <div class="hero">
+
+            <h2>Meio Ambiente</h2>
+
+            <p>
+                Conhecimento ambiental para compreender,
+                preservar e utilizar os recursos naturais
+                de maneira responsável.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Biodiversidade</h3>
+                <p>
+                    A biodiversidade representa a variedade de
+                    espécies, genes e ecossistemas existentes.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Água</h3>
+                <p>
+                    A conservação dos recursos hídricos é fundamental
+                    para a vida, agricultura e desenvolvimento.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Solo</h3>
+                <p>
+                    O solo é um recurso essencial para a produção
+                    de alimentos e manutenção dos ecossistemas.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Reciclagem</h3>
+                <p>
+                    Reduzir, reutilizar e reciclar ajuda a diminuir
+                    a geração de resíduos e o desperdício.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>Educação Ambiental</h2>
+
+            <p>
+                A educação ambiental busca desenvolver conhecimentos,
+                atitudes e práticas que contribuam para a conservação
+                dos recursos naturais.
+            </p>
+
+            <h3>Principais práticas sustentáveis</h3>
+
+            <ul class="lista">
+                <li>Economizar água;</li>
+                <li>Reduzir o desperdício;</li>
+                <li>Separar resíduos recicláveis;</li>
+                <li>Preservar árvores e plantas;</li>
+                <li>Proteger a biodiversidade;</li>
+                <li>Utilizar os recursos naturais de forma responsável;</li>
+                <li>Realizar compostagem;</li>
+                <li>Promover educação ambiental.</li>
+            </ul>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>♻️ Recuperação de áreas degradadas</h2>
+
+            <p>
+                Áreas degradadas podem apresentar perda de vegetação,
+                erosão do solo, alteração da qualidade da água
+                e redução da biodiversidade.
+            </p>
+
+            <p>
+                A recuperação ambiental pode envolver recomposição
+                da vegetação, controle de erosão, recuperação do solo,
+                proteção dos recursos hídricos e acompanhamento
+                das áreas recuperadas.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MINERAÇÃO
+    ========================= -->
+
+    <section id="mineracao" class="pagina">
+
+        <div class="hero">
+
+            <h2>Mineração Responsável</h2>
+
+            <p>
+                Conheça os impactos da mineração e as estratégias
+                que podem contribuir para uma atividade mais
+                segura, responsável e sustentável.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icone">🪨</div>
+                <h3>Recursos minerais</h3>
+                <p>
+                    Os minerais são utilizados em construção,
+                    tecnologia, indústria, energia e diversos
+                    produtos presentes no cotidiano.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Impactos ambientais</h3>
+                <p>
+                    A atividade pode provocar alteração do solo,
+                    geração de resíduos, consumo de água,
+                    supressão vegetal e outros impactos.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Recuperação ambiental</h3>
+                <p>
+                    Após a atividade, medidas de recuperação
+                    podem contribuir para restaurar as áreas
+                    afetadas.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icone"></div>
+                <h3>Segurança</h3>
+                <p>
+                    A segurança dos trabalhadores deve ser
+                    prioridade em todas as etapas da atividade.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>Princípios da mineração responsável</h2>
+
+            <ul class="lista">
+
+                <li>
+                    Planejamento ambiental antes da implantação
+                    de atividades.
+                </li>
+
+                <li>
+                    Controle e monitoramento dos impactos.
+                </li>
+
+                <li>
+                    Uso racional da água e dos recursos naturais.
+                </li>
+
+                <li>
+                    Gestão adequada de resíduos.
+                </li>
+
+                <li>
+                    Recuperação de áreas degradadas.
+                </li>
+
+                <li>
+                    Segurança e proteção dos trabalhadores.
+                </li>
+
+                <li>
+                    Respeito às comunidades e ao território.
+                </li>
+
+                <li>
+                    Transparência e responsabilidade socioambiental.
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>📚 O que o estudante pode aprender?</h2>
+
+            <p>
+                O estudo da mineração responsável permite compreender
+                que o desenvolvimento econômico precisa considerar
+                também os aspectos sociais e ambientais.
+            </p>
+
+            <div class="alerta verde">
+                <strong>Desafio:</strong>
+                você consegue tomar decisões de mineração
+                mantendo equilíbrio entre economia, sociedade
+                e meio ambiente?
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         REGISTROS
+    ========================= -->
+
+    <section id="registros" class="pagina">
+
+        <div class="hero">
+
+            <h2> Registro de Ações Ambientais</h2>
+
+            <p>
+                Registre atividades, projetos, campanhas,
+                plantios, manutenção e ações de sustentabilidade.
+            </p>
+
+        </div>
+
+        <div class="secao">
+
+            <h2>➕ Nova ação ambiental</h2>
+
+            <form onsubmit="registrarAcao(event)">
+
+                <label>Nome da ação</label>
+                <input type="text" id="nomeAcao" placeholder="Ex.: Plantio de mudas" required="">
+
+                <label>Categoria</label>
+
+                <select id="categoriaAcao">
+
+                    <option>Educação Ambiental</option>
+                    <option>Horta</option>
+                    <option>Arborização</option>
+                    <option>Reciclagem</option>
+                    <option>Mineração</option>
+                    <option>Recuperação Ambiental</option>
+                    <option>Biodiversidade</option>
+
+                </select>
+
+                <label>Data</label>
+                <input type="date" id="dataAcao" required="">
+
+                <label>Responsável</label>
+                <input type="text" id="responsavelAcao" placeholder="Nome do estudante/equipe" required="">
+
+                <label>Descrição</label>
+
+                <textarea id="descricaoAcao" placeholder="Descreva a atividade realizada..." required=""></textarea>
+
+                <button class="botao">
+                     Registrar ação
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="secao">
+
+            <h2> Ações registradas</h2>
+
+            <div class="tabela-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Ação</th>
+                            <th>Categoria</th>
+                            <th>Data</th>
+                            <th>Responsável</th>
+                            <th>Descrição</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tabelaAcoes"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <h3></h3>
+
+    <p>
+        CETI Professora Maria de Castro Ribeiro
+    </p>
+
+    <p>
+        Curso Técnico em Desenvolvimento de Sistemas
+    </p>
+
+    <br>
+
+</footer>
+
+
+<script>
+
+    /* =====================================
+       SISTEMA DE NAVEGAÇÃO
+    ===================================== */
+
+    function mostrarPagina(id) {
+
+        const paginas = document.querySelectorAll(".pagina");
+
+        paginas.forEach(function(pagina) {
+            pagina.classList.remove("ativa");
+        });
+
+        document.getElementById(id).classList.add("ativa");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        atualizarDashboard();
+    }
+
+
+    /* =====================================
+       BANCO DE DADOS LOCAL
+    ===================================== */
+
+    let especies =
+        JSON.parse(localStorage.getItem("ecoceti_especies")) || [
+
+            {
+                nome: "Ipê-amarelo",
+                cientifico: "Handroanthus sp.",
+                local: "Jardim de Ipês",
+                info: "Árvore nativa utilizada na arborização."
+            },
+
+            {
+                nome: "Rosa-do-deserto",
+                cientifico: "Adenium obesum",
+                local: "Flores do Deserto",
+                info: "Planta ornamental adaptada a ambientes quentes."
+            }
+
+        ];
+
+
+    let horta =
+        JSON.parse(localStorage.getItem("ecoceti_horta")) || [];
+
+
+    let acoes =
+        JSON.parse(localStorage.getItem("ecoceti_acoes")) || [];
+
+
+    /* =====================================
+       CADASTRO DE ESPÉCIES
+    ===================================== */
+
+    function cadastrarEspecie(event) {
+
+        event.preventDefault();
+
+        const especie = {
+
+            nome:
+                document.getElementById("nomeEspecie").value,
+
+            cientifico:
+                document.getElementById("cientificoEspecie").value,
+
+            local:
+                document.getElementById("localEspecie").value,
+
+            info:
+                document.getElementById("infoEspecie").value
+
+        };
+
+        especies.push(especie);
+
+        localStorage.setItem(
+            "ecoceti_especies",
+            JSON.stringify(especies)
+        );
+
+        event.target.reset();
+
+        atualizarTabelas();
+
+        alert("🌳 Espécie cadastrada com sucesso!");
+
+    }
+
+
+    /* =====================================
+       CADASTRO DA HORTA
+    ===================================== */
+
+    function cadastrarHorta(event) {
+
+        event.preventDefault();
+
+        const cultivo = {
+
+            nome:
+                document.getElementById("nomeHorta").value,
+
+            data:
+                document.getElementById("dataHorta").value,
+
+            status:
+                document.getElementById("statusHorta").value
+
+        };
+
+        horta.push(cultivo);
+
+        localStorage.setItem(
+            "ecoceti_horta",
+            JSON.stringify(horta)
+        );
+
+        event.target.reset();
+
+        atualizarTabelas();
+
+        alert("🌱 Cultivo cadastrado com sucesso!");
+
+    }
+
+
+    /* =====================================
+       REGISTRAR AÇÃO
+    ===================================== */
+
+    function registrarAcao(event) {
+
+        event.preventDefault();
+
+        const acao = {
+
+            nome:
+                document.getElementById("nomeAcao").value,
+
+            categoria:
+                document.getElementById("categoriaAcao").value,
+
+            data:
+                document.getElementById("dataAcao").value,
+
+            responsavel:
+                document.getElementById("responsavelAcao").value,
+
+            descricao:
+                document.getElementById("descricaoAcao").value
+
+        };
+
+        acoes.push(acao);
+
+        localStorage.setItem(
+            "ecoceti_acoes",
+            JSON.stringify(acoes)
+        );
+
+        event.target.reset();
+
+        atualizarTabelas();
+
+        alert("📝 Ação ambiental registrada!");
+
+    }
+
+
+    /* =====================================
+       ATUALIZAR TABELAS
+    ===================================== */
+
+    function atualizarTabelas() {
+
+        const tabelaEspecies =
+            document.getElementById("tabelaEspecies");
+
+        tabelaEspecies.innerHTML = "";
+
+        especies.forEach(function(especie) {
+
+            tabelaEspecies.innerHTML += `
+
+                <tr>
+
+                    <td>${especie.nome}</td>
+
+                    <td>${especie.cientifico}</td>
+
+                    <td>${especie.local}</td>
+
+                    <td>${especie.info}</td>
+
+                </tr>
+
+            `;
+
+        });
+
+
+        const tabelaHorta =
+            document.getElementById("tabelaHorta");
+
+        tabelaHorta.innerHTML = "";
+
+        horta.forEach(function(item) {
+
+            tabelaHorta.innerHTML += `
+
+                <tr>
+
+                    <td>${item.nome}</td>
+
+                    <td>${item.data}</td>
+
+                    <td>${item.status}</td>
+
+                </tr>
+
+            `;
+
+        });
+
+
+        const tabelaAcoes =
+            document.getElementById("tabelaAcoes");
+
+        tabelaAcoes.innerHTML = "";
+
+        acoes.forEach(function(acao) {
+
+            tabelaAcoes.innerHTML += `
+
+                <tr>
+
+                    <td>${acao.nome}</td>
+
+                    <td>${acao.categoria}</td>
+
+                    <td>${acao.data}</td>
+
+                    <td>${acao.responsavel}</td>
+
+                    <td>${acao.descricao}</td>
+
+                </tr>
+
+            `;
+
+        });
+
+        atualizarDashboard();
+
+    }
+
+
+    /* =====================================
+       DASHBOARD
+    ===================================== */
+
+    function atualizarDashboard() {
+
+        document.getElementById("totalEspecies").textContent =
+            especies.length;
+
+        document.getElementById("totalHorta").textContent =
+            horta.length;
+
+        document.getElementById("totalAcoes").textContent =
+            acoes.length;
+
+        document.getElementById("totalCadastros").textContent =
+            especies.length + horta.length + acoes.length;
+
+    }
+
+
+    /* =====================================
+       INICIAR
+    ===================================== */
+
+    atualizarTabelas();
+
+</script>
+
+
+</body></html>
